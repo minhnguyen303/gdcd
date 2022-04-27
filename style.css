@@ -1,13 +1,14 @@
-button{
+button[data-answer]{
     border: 5px #fff solid;
     padding: 5px;
+    font-size: 15px;
 }
 
-button.true{
+button[data-answer].true{
     border: 5px green solid;
 }
 
-button.false{
+button[data-answer].false{
     border: 5px red solid;
 }
 
