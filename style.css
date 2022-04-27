@@ -16,10 +16,13 @@ body {
     display: flex;
 }
 
-.point{
+.sticky{
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+}
+
+.point{
     background-color: #000;
     color: #fff;
     padding: 30px;
