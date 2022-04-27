@@ -1,0 +1,12 @@
+button{
+    border: 5px #fff solid;
+    padding: 5px;
+}
+
+button.true{
+    border: 5px green solid;
+}
+
+button.false{
+    border: 5px red solid;
+}

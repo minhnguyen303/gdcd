@@ -1,4 +1,4 @@
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     let questions = ` Nhà nước pháp quyền là nhà nước quản lý mọi mặt của đời sống xã hội bằng
 |?|A. Thói quen.|			|B. Tín ngưỡng. 	|	|C. Pháp luật.	|		|D. Tập quán.
 |?|C|-|
@@ -162,10 +162,10 @@ Do gia đình anh D và chị H chưa nộp một số khoản đóng góp cho l
         let rightAnswer = item.split("|?|")[2];
 
         answers = ('' + answers).split("|");
-        answers = answers.map(function(i) {
+        answers = answers.map(function (i) {
             return i.trim();
         });
-        answers = answers.filter(function(i) {
+        answers = answers.filter(function (i) {
             return i != '';
         });
         let newItem = [];
@@ -176,17 +176,33 @@ Do gia đình anh D và chị H chưa nộp một số khoản đóng góp cho l
     });
     console.log(data);
     data.forEach((item, index) => {
-      let qAnswer = `<button>${item.answers[0]}</button>
-        <button>${item.answers[1]}</button>
-        <button>${item.answers[2]}</button>
-        <button>${item.answers[3]}</button>`;
-      let e = `<div class="question" data-answer="${item.rightAnswer}">
+        let qAnswer = `<button data-answer="${item.answers[0].slice(0, 1)}">${item.answers[0]}</button>
+        <button data-answer="${item.answers[1].slice(0, 1)}">${item.answers[1]}</button>
+        <button data-answer="${item.answers[2].slice(0, 1)}">${item.answers[2]}</button>
+        <button data-answer="${item.answers[3].slice(0, 1)}">${item.answers[3]}</button>`;
+        let e = `<div class="question" data-answer="${item.rightAnswer}">
         <h3>Câu ${index + 1}. ${item.question}</h3>
         <div>
         ${qAnswer}
         </div>
         </div>`;
-      body.append(e);
+        body.append(e);
     });
-    
+
+    $('button').on('click', function () {
+        if (!$(this).hasClass("disabled")) {
+          let rightAnswer = $(this).parents(".question").attr("data-answer");
+          let answer = $(this).attr("data-answer");
+          if (answer == rightAnswer) {
+            $(this).addClass("true");
+          } else {
+            $(this).addClass("false");
+            $(this)
+              .parents(".question")
+              .find(`button[data-answer="${rightAnswer}"]`)
+              .addClass("true");
+          }
+          $(this).parents(".question").find("button").addClass("disabled");
+        }
+    })
 })
