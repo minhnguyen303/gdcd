@@ -1,0 +1,7 @@
+button.true:not(.null){
+    background-color: green;
+}
+
+button.false:not(.null){
+    background-color: red;
+}
