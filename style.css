@@ -10,3 +10,22 @@ button.true{
 button.false{
     border: 5px red solid;
 }
+
+body {
+    display: flex;
+}
+
+.point{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #000;
+    color: #fff;
+    padding: 30px;
+}
+
+.content {
+    border-left: 1px red solid;
+    margin-left: 10px;
+    padding-left: 10px;
+}

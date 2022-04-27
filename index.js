@@ -153,7 +153,9 @@ Do gia đình anh D và chị H chưa nộp một số khoản đóng góp cho l
 |?|A|-|
 Được chị H đề nghị, anh D đồng ý cho anh chị H sử dụng bản thiết kế dây chuyền xử là nước thải. Sau khi sử dụng, chị H cùng với anh T đã nghiên cứu cải tiến thêm một số nội dung để dây chuyền được hoàn thiện. Sau đó anh T làm hồ sơ đăng ký bản quyền tại cơ quan chức năng dưới danh nghĩa chủ sở hữu là chị H và anh T. Phát hiện thấy dây chuyển mới đăng ký của chị H và anh T đã sao chép một phần lớn đề tài của mình mà không xin ý kiến, anh D làm đơn khiếu nại. Sau khi xem xét, cơ quan chức năng kết luận, hồ sơ đăng ký sở hộ trí tuệ của anh T và chị H là hợp lệ, còn khiếu nại của anh D là chưa có cơ sở vì anh D chưa đăng ký bảo hộ sở hữu trí tuệ. Trong trường hợp này ai đã thực hiện chưa đúng quyền sở hữu công nghiệp?
 |?|A. Anh D			|B. Anh D và chị H		|C. Chị H			|D. Anh D và anh T.|?|B`;
-    let body = $("body");
+    let body = $(".content");
+    let point = 0;
+    $(".point").text(point);
     let questionsList = questions.split('|-|');
     let data = [];
     questionsList.forEach(item => {
@@ -195,6 +197,8 @@ Do gia đình anh D và chị H chưa nộp một số khoản đóng góp cho l
           let answer = $(this).attr("data-answer");
           if (answer == rightAnswer) {
             $(this).addClass("true");
+            point++;
+            $(".point").text(point);
           } else {
             $(this).addClass("false");
             $(this)
